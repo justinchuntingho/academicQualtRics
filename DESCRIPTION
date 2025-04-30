@@ -1,0 +1,17 @@
+Package: academicqualtrics
+Type: Package
+Title: Access the Qualtrics API Endpoint
+Version: 0.1.0
+Authors@R: 
+    person("Justin Chun-ting", "Ho", , "j.c.ho@uva.nl", role = c("aut", "cre"))
+Maintainer: Justin Chun-ting Ho <j.c.ho@uva.nl>
+Description: A wrapper for Qualtrics API.
+License: CC BY 4.0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    httr,
+    jsonlite,
+    stringi
