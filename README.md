@@ -11,6 +11,8 @@ Repo containing code to for R package <tt>academicQualtRics</tt> to access Qualt
 To cite package ‘academicqualtrics’ in publications use:
   - Ho, Justin Chun-ting. (2025). academicqualtrics: an R package to access Qualtrics API endpoint. https://github.com/justinchuntingho/academicQualtRics
 
+Contributions are welcome!
+
 ## Introduction
 Crowd annotation has been increasingly used within social sciences and beyond, however it often requires researchers to set up the platform for crowdcoders to conduct their annotation. Currently, a common workflow is to setup the annotation task in the form of a Qualtrics survey and forward the link to annotators recruited through panel company, for example Prolifics. However, setting up the survey on Qualtrics is not always easy, especially when you have a large collection of data. This package automates the process of uploading texts, creating questions, and adding a randomiser block in the survey flow.
 
