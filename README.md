@@ -6,7 +6,7 @@
 ![GitHub Repo stars](https://img.shields.io/github/watchers/justinchuntingho/academicqualtrics)
 
 
-Repo containing code to for R package <tt>academicqualtrics</tt> to access Qualtrics API endpoint for academic research.
+Repo containing code to for R package <tt>academicQualtRics</tt> to access Qualtrics API endpoint for academic research.
 
 To cite package ‘academicqualtrics’ in publications use:
   - Ho, Justin Chun-ting. (2025). academicqualtrics: an R package to access Qualtrics API endpoint. https://github.com/justinchuntingho/academicqualtrics
