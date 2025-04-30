@@ -1,4 +1,4 @@
-Package: academicqualtrics
+Package: academicQualtRics
 Type: Package
 Title: Access the Qualtrics API Endpoint
 Version: 0.1.0
