@@ -1,5 +1,11 @@
 # academicqualtrics
 
+![status](https://img.shields.io/badge/status-pre_release-yellow)
+![GitHub Repo stars](https://img.shields.io/github/stars/justinchuntingho/academicqualtrics)
+![GitHub Repo stars](https://img.shields.io/github/forks/justinchuntingho/academicqualtrics)
+![GitHub Repo stars](https://img.shields.io/github/watchers/justinchuntingho/academicqualtrics)
+
+
 Repo containing code to for R package <tt>academicqualtrics</tt> to access Qualtrics API endpoint for academic research.
 
 To cite package ‘academicqualtrics’ in publications use:
