@@ -1,4 +1,4 @@
-# academicqualtrics
+# academicQualtRics
 
 ![status](https://img.shields.io/badge/status-pre_release-yellow)
 ![GitHub Repo stars](https://img.shields.io/github/stars/justinchuntingho/academicqualtrics)
