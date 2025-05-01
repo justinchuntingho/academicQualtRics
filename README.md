@@ -24,7 +24,7 @@ devtools::install_github("justinchuntingho/academicQualtRics")
 ```
 ## Getting your Qualtrics credentials
 There are two important credentials you need to access the Qualtrics API. These are your Datacenter ID and API token. They can be checked in your Account Settings
-For further information, check the [Qualtrics API documentation](https://api.qualtrics.com/). Additionally, before uploading your texts and questions, you need to create a survey and obtain the survey ID. The easiest to check is to go to the survey edit page, and check the URL, it should look something like this: `https://uva.eu.qualtrics.com/survey-builder/SV_9SwnPtsdgsdgjhY/edit`. The string starts with `SV_` is the survey ID (in this case, `SV_9SwnPtsdgsdgjhY`).
+For further information, check the [Qualtrics API documentation](https://api.qualtrics.com/). Additionally, before uploading your texts and questions, you need to create a survey and obtain the survey ID. The easiest to check is to go to the survey edit page, and check the URL, it should look something like this: `https://uva.eu.qualtrics.com/survey-builder/SV_9SwnPtsdgsdgjhY/edit`. The string starting with `SV_` is the survey ID (in this case, `SV_9SwnPtsdgsdgjhY`).
 
 ## Workflow
 Once you have your Qualtrics credentials ready, add texts to Qualtrics. The function currently accepts a character vector of texts to be annotated.
