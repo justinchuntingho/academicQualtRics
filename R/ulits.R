@@ -159,3 +159,16 @@ create_blocks <- function(x, DATA_CENTER, SURVEY_ID, API_TOKEN){
   }
   blockids
 }
+
+get_options <- function(DATA_CENTER,SURVEY_ID,API_TOKEN){
+  response <- httr::GET(
+    paste0("https://",DATA_CENTER,".qualtrics.com/API/v3/survey-definitions/",SURVEY_ID,"/options"),
+    httr::add_headers(
+      "X-API-TOKEN" = API_TOKEN,
+      "Content-Type" = "application/json"
+    )
+  )
+  res <-get_content(response)
+  result <- res$result
+  result
+}
