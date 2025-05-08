@@ -2,8 +2,7 @@
 % Please edit documentation in R/prolific.R
 \name{setup_prolific}
 \alias{setup_prolific}
-\title{Setup Prolific Integration
-This function replicates the steps specified here: https://researcher-help.prolific.com/en/article/fbbd36}
+\title{Setup Prolific Integration}
 \usage{
 setup_prolific(url, DATA_CENTER, SURVEY_ID, API_TOKEN)
 }
@@ -18,7 +17,6 @@ setup_prolific(url, DATA_CENTER, SURVEY_ID, API_TOKEN)
 }
 \description{
 Setup Prolific Integration
-This function replicates the steps specified here: https://researcher-help.prolific.com/en/article/fbbd36
 }
 \examples{
 blockids <- c("BL_v7iQbRtKtAv7mQ10zO1h", "BL_t4VtQCrLDxzJalrgShVx")

@@ -100,10 +100,10 @@ add_question <- function(block_id, question, answers, tag, DATA_CENTER, SURVEY_I
   question_id
 }
 
-add_text <- function(block_id, text, DATA_CENTER, SURVEY_ID, API_TOKEN){
+add_text <- function(block_id, text, tag, DATA_CENTER, SURVEY_ID, API_TOKEN){
   payload_list <- list(
     QuestionText = text,
-    DataExportTag = "Article",
+    DataExportTag = paste0(tag,"_Article"),
     QuestionType = "DB",
     Selector = "TB",
     Configuration = list(

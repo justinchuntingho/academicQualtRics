@@ -4,10 +4,12 @@
 \alias{add_texts}
 \title{Create Text Blocks for Annotation}
 \usage{
-add_texts(x, DATA_CENTER, SURVEY_ID, API_TOKEN)
+add_texts(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN)
 }
 \arguments{
 \item{x}{character vector, texts to be annotated}
+
+\item{tags}{character vector, data tags}
 
 \item{DATA_CENTER}{string, your Qualtrics data center}
 
@@ -26,6 +28,7 @@ texts <- c("In a hole in the ground there lived a hobbit.",
             "It was a hobbit-hole, and that means comfort.")
 \dontrun{
 add_texts(texts,
+          tags,
           "fra1",
           "SV_S3A96bzOnfyKMEDCiKhw",
           "ZAhIjt6CkPO5FyczlRhJ")

@@ -4,7 +4,15 @@
 \alias{add_questions}
 \title{Add Questions to Text Blocks}
 \usage{
-add_questions(blockids, question, answers, DATA_CENTER, SURVEY_ID, API_TOKEN)
+add_questions(
+  blockids,
+  question,
+  answers,
+  tags,
+  DATA_CENTER,
+  SURVEY_ID,
+  API_TOKEN
+)
 }
 \arguments{
 \item{blockids}{character vector, ids of text blocks}
@@ -12,6 +20,8 @@ add_questions(blockids, question, answers, DATA_CENTER, SURVEY_ID, API_TOKEN)
 \item{question}{string, question for annotators}
 
 \item{answers}{character vector, answers for annotators}
+
+\item{tags}{character vector, data tags}
 
 \item{DATA_CENTER}{string, your Qualtrics data center}
 
@@ -30,6 +40,7 @@ answers <- c("nasty","dirty","comfortable")
 add_questions(blockids,
               question,
               answers,
+              "Annotation",
               "fra1",
               "SV_S3A96bzOnfyKMEDCiKhw",
               "ZAhIjt6CkPO5FyczlRhJ")
