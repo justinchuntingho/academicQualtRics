@@ -11,7 +11,10 @@ add_questions(
   tags,
   DATA_CENTER,
   SURVEY_ID,
-  API_TOKEN
+  API_TOKEN,
+  selector = "SAVR",
+  subselector = "TX",
+  forced = "ON"
 )
 }
 \arguments{
@@ -28,6 +31,12 @@ add_questions(
 \item{SURVEY_ID}{string, your Qualtrics survey ID}
 
 \item{API_TOKEN}{string, your Qualtrics API token}
+
+\item{selector}{string, the format used for collecting responses, one of: "DL", "GRB", "MACOL", "MAHR", "MAVR", "MSB", "NPS", "SACOL", "SAHR", "SAVR", "SB", "TB", "TXOT", "PTB"}
+
+\item{subselector}{string, additional options or variations for response collection, one of: "GR", "TX", "TXOT", "WOTXB", "WTXB"}
+
+\item{forced}{string, force respondents to answer a question, one of: "ON", "OFF"}
 }
 \description{
 Add Questions to Text Blocks

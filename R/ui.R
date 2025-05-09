@@ -46,6 +46,10 @@ add_texts <- function(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
 #' @param DATA_CENTER string, your Qualtrics data center
 #' @param SURVEY_ID string, your Qualtrics survey ID
 #' @param API_TOKEN string, your Qualtrics API token
+#' @param selector string, the format used for collecting responses, one of: "DL", "GRB", "MACOL", "MAHR", "MAVR", "MSB", "NPS", "SACOL", "SAHR", "SAVR", "SB", "TB", "TXOT", "PTB"
+#' @param subselector string, additional options or variations for response collection, one of: "GR", "TX", "TXOT", "WOTXB", "WTXB"
+#' @param forced string, force respondents to answer a question, one of: "ON", "OFF"
+#'
 #'
 #' @return NULL
 #' @export
@@ -58,12 +62,13 @@ add_texts <- function(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
 #' add_questions(blockids,
 #'               question,
 #'               answers,
-#'               "Annotation",
+#'               tags,
 #'               "fra1",
 #'               "SV_S3A96bzOnfyKMEDCiKhw",
 #'               "ZAhIjt6CkPO5FyczlRhJ")
 #' }
-add_questions <- function(blockids, question, answers, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
+add_questions <- function(blockids, question, answers, tags, DATA_CENTER, SURVEY_ID, API_TOKEN,
+                          selector = "SAVR", subselector = "TX", forced = "ON"){
   for(i in seq_along(blockids)){
     add_question(blockid = blockids[i],
                  question = question,
@@ -71,7 +76,11 @@ add_questions <- function(blockids, question, answers, tags, DATA_CENTER, SURVEY
                  tag = tags[i],
                  DATA_CENTER = DATA_CENTER,
                  SURVEY_ID = SURVEY_ID,
-                 API_TOKEN = API_TOKEN)
+                 API_TOKEN = API_TOKEN,
+                 qtype = "MC",
+                 selector = selector,
+                 subselector = subselector,
+                 forced = forced)
   }
 }
 

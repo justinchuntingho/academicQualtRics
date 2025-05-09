@@ -73,7 +73,7 @@ create_blocks <- function(x, DATA_CENTER, SURVEY_ID, API_TOKEN, tags = NULL){
 }
 
 add_question <- function(block_id, question, answers, tag, DATA_CENTER, SURVEY_ID, API_TOKEN,
-                         qtype = "MC", selector = "SAVR", subselector = "TX", forced = "ON"){
+                         qtype, selector, subselector, forced){
   choices_df <- data.frame(
     id = as.character(1:length(answers)),
     Display = answers
