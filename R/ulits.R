@@ -54,7 +54,7 @@ create_block <- function(tag, DATA_CENTER, SURVEY_ID, API_TOKEN) {
   block_id
 }
 
-create_blocks <- function(x, DATA_CENTER, SURVEY_ID, API_TOKEN, tags = NULL){
+create_blocks <- function(x, tags = NULL, DATA_CENTER, SURVEY_ID, API_TOKEN){
   ndoc <- length(x)
 
   if(is.null(tags)){
