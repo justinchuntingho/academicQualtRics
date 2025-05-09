@@ -1,7 +1,7 @@
 #' Create Text Blocks for Annotation
 #'
 #' @param x character vector, texts to be annotated
-#' @param tags character vector, data tags
+#' @param tags character vector, identifier for texts, needs to be same length as x
 #' @param DATA_CENTER string, your Qualtrics data center
 #' @param SURVEY_ID string, your Qualtrics survey ID
 #' @param API_TOKEN string, your Qualtrics API token
@@ -20,9 +20,18 @@
 #'           "ZAhIjt6CkPO5FyczlRhJ")
 #' }
 add_texts <- function(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
-  blockids <- create_blocks(x, DATA_CENTER, SURVEY_ID, API_TOKEN)
+  blockids <- create_blocks(x = x,
+                            tags = tags,
+                            DATA_CENTER = DATA_CENTER,
+                            SURVEY_ID = SURVEY_ID,
+                            API_TOKEN = API_TOKEN)
   for(i in seq_along(blockids)){
-    add_text(blockids[i], x[i], tags[i], DATA_CENTER, SURVEY_ID, API_TOKEN)
+    add_text(blockid = blockids[i],
+             text = x[i],
+             tag = tags[i],
+             DATA_CENTER = DATA_CENTER,
+             SURVEY_ID = SURVEY_ID,
+             API_TOKEN = API_TOKEN)
   }
   blockids
 }
@@ -33,7 +42,7 @@ add_texts <- function(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
 #' @param blockids character vector, ids of text blocks
 #' @param question string, question for annotators
 #' @param answers character vector, answers for annotators
-#' @param tags character vector, data tags
+#' @param tags character vector, identifier for texts, needs to be same length as x
 #' @param DATA_CENTER string, your Qualtrics data center
 #' @param SURVEY_ID string, your Qualtrics survey ID
 #' @param API_TOKEN string, your Qualtrics API token
@@ -56,7 +65,13 @@ add_texts <- function(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
 #' }
 add_questions <- function(blockids, question, answers, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
   for(i in seq_along(blockids)){
-    add_question(blockids[i], question, answers, tags[i], DATA_CENTER, SURVEY_ID, API_TOKEN)
+    add_question(blockid = blockids[i],
+                 question = question,
+                 answers = answers,
+                 tag = tags[i],
+                 DATA_CENTER = DATA_CENTER,
+                 SURVEY_ID = SURVEY_ID,
+                 API_TOKEN = API_TOKEN)
   }
 }
 
@@ -81,13 +96,17 @@ add_questions <- function(blockids, question, answers, tags, DATA_CENTER, SURVEY
 #'                         "ZAhIjt6CkPO5FyczlRhJ")
 #' }
 create_block_randomizer <- function(blockids,
-                                    DATA_CENTER,SURVEY_ID,API_TOKEN,
+                                    DATA_CENTER,
+                                    SURVEY_ID,
+                                    API_TOKEN,
                                     present = 5,
                                     even = TRUE){
   from_block <- blockids[1]
   to_block <- blockids[length(blockids)]
   # Get flow
-  payload <- get_flow(DATA_CENTER,SURVEY_ID,API_TOKEN)
+  payload <- get_flow(DATA_CENTER = DATA_CENTER,
+                      SURVEY_ID = SURVEY_ID,
+                      API_TOKEN = API_TOKEN)
   flow <- payload$Flow
 
   fromid <- listoflist_find(flow, "ID", from_block)

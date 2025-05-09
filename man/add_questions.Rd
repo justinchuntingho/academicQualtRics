@@ -21,7 +21,7 @@ add_questions(
 
 \item{answers}{character vector, answers for annotators}
 
-\item{tags}{character vector, data tags}
+\item{tags}{character vector, identifier for texts, needs to be same length as x}
 
 \item{DATA_CENTER}{string, your Qualtrics data center}
 

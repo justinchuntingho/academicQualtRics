@@ -32,15 +32,10 @@ listoflist_find <- function(lst, field, value) {
   idx
 }
 
-create_block <- function(DATA_CENTER, SURVEY_ID, API_TOKEN,
-                         block_name = NULL) {
-  if(is.null(block_name)){
-    block_name <- stringi::stri_rand_strings(1,10)
-  }
-
+create_block <- function(tag, DATA_CENTER, SURVEY_ID, API_TOKEN) {
   # Create the payload
   payload_list <- list(
-    Description = block_name,
+    Description = tag,
     Type = "Standard"
   )
   payload <- jsonlite::toJSON(payload_list, auto_unbox = TRUE)
@@ -57,6 +52,24 @@ create_block <- function(DATA_CENTER, SURVEY_ID, API_TOKEN,
   block_id <- content_response$result$BlockID
   cat(paste0("Successfully created Block: ", block_id, "\n"))
   block_id
+}
+
+create_blocks <- function(x, DATA_CENTER, SURVEY_ID, API_TOKEN, tags = NULL){
+  ndoc <- length(x)
+
+  if(is.null(tags)){
+    tags <- stringi::stri_rand_strings(ndoc,10)
+  }
+
+  blockids <- c()
+  for(i in 1:ndoc){
+    newid <- create_block(tag = tags[i],
+                          DATA_CENTER = DATA_CENTER,
+                          SURVEY_ID = SURVEY_ID,
+                          API_TOKEN = API_TOKEN)
+    blockids <- c(blockids, newid)
+  }
+  blockids
 }
 
 add_question <- function(block_id, question, answers, tag, DATA_CENTER, SURVEY_ID, API_TOKEN,
@@ -150,16 +163,6 @@ get_flow <- function(DATA_CENTER,SURVEY_ID,API_TOKEN){
   payload
 }
 
-create_blocks <- function(x, DATA_CENTER, SURVEY_ID, API_TOKEN){
-  ndoc <- length(x)
-  blockids <- c()
-  for(i in 1:ndoc){
-    newid <- create_block(DATA_CENTER, SURVEY_ID, API_TOKEN)
-    blockids <- c(blockids, newid)
-  }
-  blockids
-}
-
 get_options <- function(DATA_CENTER,SURVEY_ID,API_TOKEN){
   response <- httr::GET(
     paste0("https://",DATA_CENTER,".qualtrics.com/API/v3/survey-definitions/",SURVEY_ID,"/options"),
@@ -172,3 +175,17 @@ get_options <- function(DATA_CENTER,SURVEY_ID,API_TOKEN){
   result <- res$result
   result
 }
+
+get_survey <- function(DATA_CENTER,SURVEY_ID,API_TOKEN){
+  response <- httr::GET(
+    paste0("https://",DATA_CENTER,".qualtrics.com/API/v3/survey-definitions/",SURVEY_ID),
+    httr::add_headers(
+      "X-API-TOKEN" = API_TOKEN,
+      "Content-Type" = "application/json"
+    )
+  )
+  res <-get_content(response)
+  result <- res$result
+  result
+}
+
