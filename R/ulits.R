@@ -3,7 +3,9 @@ get_content <- function(response){
     content_response <- httr::content(response)
     content_response
   } else {
+    content_response <- httr::content(response)
     cat(paste0("Failed: ", httr::status_code(response), "\n"))
+    print(content_response$meta$error)
   }
 }
 
@@ -35,7 +37,7 @@ listoflist_find <- function(lst, field, value) {
 create_block <- function(tag, DATA_CENTER, SURVEY_ID, API_TOKEN) {
   # Create the payload
   payload_list <- list(
-    Description = tag,
+    Description = as.character(tag),
     Type = "Standard"
   )
   payload <- jsonlite::toJSON(payload_list, auto_unbox = TRUE)
@@ -50,7 +52,7 @@ create_block <- function(tag, DATA_CENTER, SURVEY_ID, API_TOKEN) {
 
   content_response <- get_content(response)
   block_id <- content_response$result$BlockID
-  cat(paste0("Successfully created Block: ", block_id, "\n"))
+  cat(paste0("Block: ", block_id, "\n"))
   block_id
 }
 

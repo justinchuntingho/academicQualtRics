@@ -26,7 +26,7 @@ add_texts <- function(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
                             SURVEY_ID = SURVEY_ID,
                             API_TOKEN = API_TOKEN)
   for(i in seq_along(blockids)){
-    add_text(blockid = blockids[i],
+    add_text(block_id = blockids[i],
              text = x[i],
              tag = tags[i],
              DATA_CENTER = DATA_CENTER,
@@ -70,7 +70,7 @@ add_texts <- function(x, tags, DATA_CENTER, SURVEY_ID, API_TOKEN){
 add_questions <- function(blockids, question, answers, tags, DATA_CENTER, SURVEY_ID, API_TOKEN,
                           selector = "SAVR", subselector = "TX", forced = "ON"){
   for(i in seq_along(blockids)){
-    add_question(blockid = blockids[i],
+    add_question(block_id = blockids[i],
                  question = question,
                  answers = answers,
                  tag = tags[i],
